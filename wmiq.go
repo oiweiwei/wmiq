@@ -258,9 +258,7 @@ func run() error {
 			Count:   uint32(page),
 		}, dcom.WithIPID(smartenum.SmartEnum.InterfacePointer().IPID()))
 		if err != nil {
-			if wmi.Status(ret.Return) != wmi.StatusFalse {
-				return fmt.Errorf("IWbemWcoSmartEnum.Next: %w", err)
-			}
+			return fmt.Errorf("IWbemWcoSmartEnum.Next: %w", err)
 		}
 
 		if len(ret.Buffer) == 0 {
